@@ -1,12 +1,11 @@
 # 🚀 TikTok Claims vs. Opinions: Exploratory Data Analysis
 
-**Distinguishing Viral Misinformation from Authentic Expression — An EDA Portfolio Project**
+Performed an in-depth Exploratory Data Analysis on TikTok’s video dataset to uncover what distinguishes claim (potentially misleading) videos from opinion videos. Using Python (pandas, seaborn, matplotlib), I built clean, accessible visualizations that reveal how claim content generates dramatically higher engagement despite equal video volumes.
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
 [![Pandas](https://img.shields.io/badge/Pandas-2.x-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
 [![Seaborn](https://img.shields.io/badge/Seaborn-0.13+-FF6F00?style=flat-square&logo=seaborn&logoColor=white)](https://seaborn.pydata.org)
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.x-11557c?style=flat-square&logo=matplotlib&logoColor=white)](https://matplotlib.org)
-[![Tableau](https://img.shields.io/badge/Tableau-Public-1F77B4?style=flat-square&logo=tableau&logoColor=white)](https://public.tableau.com)
 
 **Status**: Completed | **Portfolio Highlight** | **Google Advanced Data Analytics**
 
@@ -58,7 +57,6 @@ This EDA delivers:
 |--------------------|------------------------------------|
 | Data Manipulation  | pandas, NumPy                      |
 | Visualization      | Matplotlib, Seaborn                |
-| Interactive Dash   | Tableau Public                     |
 | Framework          | PACE (Plan → Analyze → Construct → Execute) |
 | Environment        | Jupyter Notebook, GitHub           |
 
@@ -72,10 +70,9 @@ Defined success as “clear, accessible visuals that reveal claim/opinion distin
 **Analyze**  
 - Full data profiling (`.head()`, `.info()`, `.describe()`, `.shape`)
 - Missing-value audit
-- Data-type validation against Tableau Data Source
 
 **Construct**  
-Built 15+ publication-quality visualizations in Python + full Tableau dashboard.
+Built 15+ publication-quality visualizations in Python
 
 **Execute**  
 - Outlier detection using **median + 1.5×IQR** (robust for skewed social-media data)
@@ -124,10 +121,59 @@ Verified users strongly prefer posting opinions.
 **Clear visual clustering** — claims occupy the high-engagement quadrant.
 
 ### 4. Outlier Analysis (Production-Grade)
-```python
 Number of outliers (median + 1.5×IQR):
+
 • video_view_count:     2,343
+
 • video_like_count:     3,468
+
 • video_share_count:    3,732
+
 • video_download_count: 3,733
+
 • video_comment_count:  3,882
+
+**Important insight:**
+These are not errors or bad data. On social media platforms like TikTok, a small number of videos naturally go viral and receive unusually high engagement. These “outliers” are real — and the vast majority of them are claim videos.
+
+**Decision:**
+We kept all outliers in the dataset. Removing them would hide the true nature of viral content and weaken the future claim-detection model. Instead, we flagged them so the modeling team can handle them appropriately.
+
+---
+### 🔥 Key Insights (What Makes This Analysis Stand Out)
+This project reveals five important truths about how content performs on TikTok:
+
+**1. Engagement is not equal**
+
+Claim videos (potentially misleading content) receive far more views, likes, shares, and downloads than opinion videos — even though both types exist in roughly equal numbers.
+
+**2. High engagement often comes before moderation**
+
+Videos from authors who later get banned or placed under review already have much higher view counts. This means engagement metrics can act as an early warning signal for harmful content.
+
+**3. Verified creators behave differently**
+
+Users with the blue verification check almost always post opinion videos, while the majority of claim videos come from unverified accounts. Verification status itself helps separate reliable content from riskier material.
+
+**4. The “viral” videos are the real story**
+
+A small number of videos receive extremely high engagement (the outliers). These are not errors — they are real, and almost all of them are claim videos. Understanding these extreme cases is essential for any future model.
+
+**5. Designed for everyone**
+
+All visualizations were built with high contrast, clear labels, and accessibility in mind so that people with visual impairments — including senior leaders — can easily understand the findings.
+
+---
+### 📌 Conclusion & Strategic Recommendations
+**In simple terms:**
+Engagement level and author status are strong indicators of whether a video is a claim or an opinion.
+This analysis gives TikTok’s leadership clear, data-backed evidence that can be used immediately to improve content moderation and protect the platform.
+
+**Recommended next steps:**
+
+- Keep the highly viewed “viral” videos in the dataset (they reflect real user behaviour)
+- Use video views and likes as the most important features for the upcoming prediction model
+- Consider combining verification status with engagement numbers for even stronger predictions
+
+**Overall impact:**
+This Exploratory Data Analysis turns a raw dataset into actionable business intelligence. It provides a solid foundation for building an accurate claim-detection model that can help TikTok reduce harmful content faster and more effectively.
