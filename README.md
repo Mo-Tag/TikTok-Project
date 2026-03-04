@@ -1,4 +1,5 @@
-# 🚀 TikTok Claims vs. Opinions: Exploratory Data Analysis
+# 🚀 Python: Exploratory Data Analysis;
+## TikTok Claims vs. Opinions
 
 Performed an in-depth Exploratory Data Analysis on TikTok’s video dataset to uncover what distinguishes claim (potentially misleading) videos from opinion videos. Using Python (pandas, seaborn, matplotlib), I built clean, accessible visualizations that reveal how claim content generates dramatically higher engagement despite equal video volumes.
 
